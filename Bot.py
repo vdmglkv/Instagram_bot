@@ -33,14 +33,14 @@ class InstagramBot:
         username_input.clear()
         username_input.send_keys(username)
 
-        time.sleep(2)
+        time.sleep(3)
 
         password_input = browser.find_element_by_name('password')
         password_input.clear()
         password_input.send_keys(password)
 
         password_input.send_keys(Keys.ENTER)
-        time.sleep(10)
+        time.sleep(5)
 
     # метод ставит лайки по hashtag
     def like_photo_by_hashtag(self, hashtag):
@@ -372,7 +372,38 @@ class InstagramBot:
 
     # метод переключения между аккаунтами
     def switch_account(self):
-        pass
+
+        browser = self.browser
+        browser.get("https://www.instagram.com/")
+
+        time.sleep(5)
+
+        try:
+
+            if self.xpath_exists("/html/body/div[4]/div/div/div/div[3]/button[2]"):
+
+                alert_button = browser.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]")
+                time.sleep(3)
+                alert_button.click()
+
+                time.sleep(3)
+                switch_button = browser.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div["
+                                                              "1]/div/div/div[3]/button/div")
+                switch_button.click()
+                time.sleep(5)
+
+                enter_new_acc_button = browser.find_element_by_xpath("/html/body/div[5]/div/div/div[3]/button")
+                enter_new_acc_button.click()
+
+                # self.login()
+
+            else:
+                print("Что-то пошло не так!")
+                self.close_browser()
+
+        except Exception as ex:
+            print(ex)
+            self.close_browser()
 
     # метод отправки сообщения пользователям
     def send_message(self):
@@ -381,4 +412,3 @@ class InstagramBot:
 
 # my_bot = InstagramBot(username, password)
 # my_bot.login()
-# my_bot.all_followers("https://www.instagram.com/gulakovvadim/")

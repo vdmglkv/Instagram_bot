@@ -381,4 +381,4 @@ class InstagramBot:
 
 # my_bot = InstagramBot(username, password)
 # my_bot.login()
-# my_bot.all_followers("https://www.instagram.com/igork__/")
+# my_bot.all_followers("https://www.instagram.com/gulakovvadim/")

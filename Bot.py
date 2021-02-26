@@ -316,8 +316,9 @@ class InstagramBot:
                             if self.xpath_exists("/html/body/div[1]/section/main/div/header/section/div[1]/div/a"):
                                 print("Это наш профиль!")
                             elif self.xpath_exists(
-                                    "/html/body/div[1]/section/main/div/header/section/div[1]/div[2]/div/span/span["
-                                    "1]/button/div/span"):
+                                    "/html/body/div[1]/section/main/div/header/section/div[1]/div[1]/div/div["
+                                    "2]/div/span/span[1]/button"):
+
                                 print(f"Уже подписаны, на {owner} пропускаем итерацию!")
                             else:
                                 time.sleep(random.randint(5, 10))
@@ -336,8 +337,13 @@ class InstagramBot:
                                 else:
                                     try:
                                         if self.xpath_exists(
-                                                "/html/body/div[1]/section/main/div/header/section/div[1]"
-                                                "/div[1]/button"):
+                                                "/html/body/div[1]/section/main/div/header/section/div[1]/div["
+                                                "1]/div/div/div/span/span[1]/button"):
+                                            follow_button = browser.find_element_by_xpath(
+                                                "/html/body/div[1]/section/main/div/header/section/div[1]/div["
+                                                "1]/div/div/div/span/span[1]/button")
+                                            follow_button.click()
+
                                             print(f"Подписались на аккаунт пользователя {owner}!")
 
                                     except Exception as ex:
@@ -363,15 +369,7 @@ class InstagramBot:
 
         self.close_browser()
 
-    # метод переключения между аккаунтами
-    def switch_account(self):
-        pass
-
-    # метод отправки сообщения пользователям
-    def send_message(self):
-        pass
-
 
 # my_bot = InstagramBot(username, password)
 # my_bot.login()
-# my_bot.all_followers("https://www.instagram.com/gulakovvadim/")
+# my_bot.all_followers("https://www.instagram.com/igork__/")

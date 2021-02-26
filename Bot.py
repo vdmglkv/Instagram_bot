@@ -240,6 +240,7 @@ class InstagramBot:
             for i in img_and_video_src_urls:
                 file.write(i + "\n")
 
+    # метод подписывается на всех подписчиков пользователя
     def all_followers(self, userpage):
 
         browser = self.browser
@@ -368,6 +369,14 @@ class InstagramBot:
             self.close_browser()
 
         self.close_browser()
+
+    # метод переключения между аккаунтами
+    def switch_account(self):
+        pass
+
+    # метод отправки сообщения пользователям
+    def send_message(self):
+        pass
 
 
 # my_bot = InstagramBot(username, password)

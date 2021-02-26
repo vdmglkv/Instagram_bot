@@ -363,6 +363,14 @@ class InstagramBot:
 
         self.close_browser()
 
+    # метод переключения между аккаунтами
+    def switch_account(self):
+        pass
+
+    # метод отправки сообщения пользователям
+    def send_message(self):
+        pass
+
 
 # my_bot = InstagramBot(username, password)
 # my_bot.login()

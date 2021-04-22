@@ -1,11 +1,11 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from admin.aut_date import username, password
-import time
-import random
-from selenium.common.exceptions import NoSuchElementException
-import requests
 import os
+import random
+import time
+import requests
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+from aut_date import username, password
 
 
 class InstagramBot:
@@ -49,7 +49,7 @@ class InstagramBot:
         browser.get(f'https://www.instagram.com/explore/tags/{hashtag}/')
         time.sleep(5)
 
-        for i in range(1, 4):
+        for _ in range(1, 4):
             browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(random.randrange(3, 5))
 
@@ -410,5 +410,8 @@ class InstagramBot:
         pass
 
 
-# my_bot = InstagramBot(username, password)
-# my_bot.login()
+if __name__ == '__main__':
+
+    my_bot = InstagramBot(username, password)
+    my_bot.login()
+    print('I am from console')
